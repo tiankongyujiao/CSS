@@ -33,17 +33,18 @@ body {
 }
 
 .wrap>div:first-child {
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-shrink: 0; // 空间小时不缩小
+    flex-grow: 0; // 空间大时不放大
 }
 
 .wrap>div:last-child {
     margin-right: 0;
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-shrink: 0; // 空间小时不缩小
+    flex-grow: 0; // 空间大时不放大
 }
 ```
-设置 **flex-basis: 20px;** 每个子元素，然后给两边的div设置 **flex-shrink: 0; flex-grow: 0;** 这样就能实现两边宽度固定，中间自适应。
+设置 **flex-basis: 20px;** 每个子元素，然后给两边的div设置 **flex-shrink: 0; flex-grow: 0;** 这样就能实现两边宽度固定，中间自适应。  
+想要固定的宽度 **flex-shrink: 0; flex-grow: 0;** 要和 **flex-basis: 20px;** 搭配使用。
 
 2. 实现垂直方向上的自适应浏览器窗口大小，每个item高度平均分割窗口高度
 ```
@@ -76,12 +77,11 @@ body {
     flex: 1;
     width: 500px;
     height: 100vh;
-    flex-shrink: 1;
-    flex-basis: 200px;
+    flex-shrink: 1; // 默认也是1
+    flex-basis: 200px; // 默认两边宽度是200，因为第一个和最后一个div设置了flex-shrink: 0;和flex-grow: 0;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+    display: flex; // 设置这个使下一级的div具有flex的盒模型
+    flex-direction: column; // 垂直布局，从上到下
 }
 
 .wrap>div>div {
@@ -89,16 +89,17 @@ body {
 }
 
 .wrap>div:first-child {
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-shrink: 0; // 空间小时不缩小
+    flex-grow: 0; // 空间大时不放大
     background: #f40;
 }
 
 .wrap>div:last-child {
     margin-right: 0;
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-shrink: 0; // 空间小时不缩小
+    flex-grow: 0; // 空间大时不放大
     background: #f40;
 }
 ```
+
 
