@@ -39,4 +39,4 @@
     flex-grow: 0;
 }
 ```
-设置 ** flex-basis: 20px; ** 每个子元素，然后给两边的div设置 ** flex-shrink: 0; flex-grow: 0; ** 这样就能实现两边宽度固定，中间自适应。
+设置 **flex-basis: 20px;** 每个子元素，然后给两边的div设置 **flex-shrink: 0; flex-grow: 0;** 这样就能实现两边宽度固定，中间自适应。
