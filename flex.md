@@ -46,7 +46,7 @@ body {
 设置 **flex-basis: 20px;** 每个子元素，然后给两边的div设置 **flex-shrink: 0; flex-grow: 0;** 这样就能实现两边宽度固定，中间自适应。  
 想要固定的宽度 **flex-shrink: 0; flex-grow: 0;** 要和 **flex-basis: 20px;** 搭配使用。
 
-2. 实现垂直方向上的自适应浏览器窗口大小，每个item高度平均分割窗口高度
+2. 实现垂直方向上的自适应浏览器窗口大小，左边11，12，13每个item高度平均分割窗口高度，右边31，32，33上面的21和32固定高度，33高度随窗口高度变化。
 ```
 // html
 <div class="wrap">
@@ -56,7 +56,11 @@ body {
         <div>13</div>
     </div>
     <div class="s">2</div>
-    <div class="t">3</div>
+    <div class="t">
+        <div>31</div>
+        <div class="s">32</div>
+        <div>33</div>
+    </div>
 </div>
 // css
 body {
@@ -99,6 +103,20 @@ body {
     flex-shrink: 0; // 空间小时不缩小
     flex-grow: 0; // 空间大时不放大
     background: #f40;
+}
+
+.wrap>div.t>div {
+    flex-basis: 100px;
+}
+
+.wrap>div.t>div:first-child {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.wrap>div.t>div.s {
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 ```
 
